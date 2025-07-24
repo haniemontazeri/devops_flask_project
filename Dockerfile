@@ -1,13 +1,18 @@
-# Use official Python base image
+# از یه ایمیج رسمی پایتون استفاده می‌کنیم
 FROM python:3.10-slim
 
-# Set working directory
+# یه پوشه می‌سازیم توی کانتینر برای پروژه
 WORKDIR /app
 
-# Copy files
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+# فایل‌های پروژه رو کپی می‌کنیم داخل کانتینر
+COPY . /app
 
-COPY . .
+# پکیج‌هایی که پروژه لازم داره رو نصب می‌کنیم
+RUN pip install flask
 
+# پورت 5000 رو باز می‌کنیم
+EXPOSE 5000
+
+# دستور اجرا کردن برنامه‌ت
 CMD ["python", "app.py"]
+
