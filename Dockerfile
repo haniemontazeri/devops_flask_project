@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # پکیج‌هایی که پروژه لازم داره رو نصب می‌کنیم
-RUN pip install flask
+RUN pip install -r requiressments.txt
 
 # پورت 5000 رو باز می‌کنیم
 EXPOSE 5000
